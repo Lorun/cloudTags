@@ -1,16 +1,18 @@
-import { createStore, combineReducers } from 'redux';
-import teams from './team/reducer';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import tags from './tags/reducer';
+import thunk from 'redux-thunk';
 
 
 const rootReducer = combineReducers({
-    teams,
+    tags,
 });
 
 const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {};
 
 const store = createStore(
     rootReducer,
-    persistedState
+    persistedState,
+    applyMiddleware(thunk)
 );
 
 store.subscribe(() => {
