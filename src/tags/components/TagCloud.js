@@ -3,6 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as tagActions from '../actions';
 
+import './tagCloud.css';
+
 
 class TagCloud extends Component {
 
@@ -10,6 +12,10 @@ class TagCloud extends Component {
         super(props);
 
         this.onClickSave = this.onClickSave.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.fetchTags();
     }
 
     onClickDeleteTag(index) {
@@ -25,12 +31,15 @@ class TagCloud extends Component {
     render() {
         return(
             <div className="tagCloud">
+                {this.props.isFetching ? <div className="tagCloud-uploading">Updating...</div> : ''}
                 <div className="tagCloud-area">
-                    {this.props.list.map((tag, index) => (<span key={index}>{tag} <button onClick={this.onClickDeleteTag(index)}>×</button></span>))}
+                    {this.props.list.map((tag, index) => (<span key={index} className="tagCloud-tag">{tag} <button onClick={this.onClickDeleteTag(index)} className="tagCloud-tagDelete">×</button></span>))}
                 </div>
 
-                <div>
-                    <button onClick={this.onClickSave}>Save</button>
+                <div className="tagCloud-controls">
+                    <button onClick={this.onClickSave} className="btn">
+                        {this.props.isSaving ? 'Saving...' : 'Save'}
+                    </button>
                 </div>
             </div>
         );

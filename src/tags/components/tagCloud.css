@@ -1,0 +1,84 @@
+
+.tagCloud {
+    position: relative;
+}
+
+.tagCloud-uploading {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5em;
+    font-size: 0.875em;
+    color: #1cd553;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.tagCloud-area {
+    border: 2px solid #eee;
+    padding: 1em;
+}
+
+.tagCloud-tag {
+    display: inline-block;
+    position: relative;
+    background: #d8e3f8;
+    border-radius: 3px;
+    padding: 0.4em 2.4em 0.4em 0.5em;
+    font-size: 0.875em;
+    margin: 0.25em;
+}
+.tagCloud-tagDelete {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0.3em 0.35em;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    font-size: 1.4em;
+    line-height: 1;
+    color: #7b8b9c;
+    border-radius: 0;
+    border-left: 1px solid rgba(0,0,0,0.05);
+}
+.tagCloud-tagDelete:hover {
+    color: red;
+}
+
+.tagCloud-controls {
+    padding: 1em 0;
+    text-align: right;
+}
+
+.btn {
+    box-sizing: border-box;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    margin: 0;
+    white-space: nowrap;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: none;
+    background: #6d6ff9;
+    height: 2.5em;
+    line-height: 2.5em;
+    padding: 0 2em;
+    color: #ffffff;
+    font-weight: normal;
+    border-radius: 0.25em;
+
+    font-size: 1em;
+}
+.btn:hover {
+    opacity: 0.8;
+}

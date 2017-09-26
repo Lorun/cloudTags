@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as tagActions from '../actions';
 
+import './tagSearch.css';
 import tweets from '../../tweets.json';
 
 
@@ -33,11 +34,11 @@ class TagSearch extends Component {
 
     onChange(e) {
         const value = e.target.value;
-        const query = ('#' + value).toLowerCase();
+        const query = ('#' + value.replace(/#?(.*)/i, "$1")).toLowerCase();
         const regex = new RegExp(query + '.*?\\b', 'g');
         let matchedTags = [];
 
-        if(value) {
+        if(query.length > 1) {
             tweets.statuses.map((status) => {
                 const matched = status.text.toLowerCase().match(regex);
                 if (matched)
